@@ -2,6 +2,13 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    #FOSUserBUndle configuration
+    - { resource: fos/fos_user.yml }
+    #Sonata configuration
+    - { resource: sonata/sonata_block.yml }
+    - { resource: sonata/sonata_classification.yml }
+    - { resource: sonata/sonata_media.yml }
+
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
@@ -40,9 +47,6 @@ twig:
     strict_variables: '%kernel.debug%'
 
 
-imports:
-    #...
-    - { resource: sonata_classification.yml }
     
 # Doctrine Configuration
 doctrine:
@@ -80,53 +84,4 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
-
-#FOSUserBUndle configuration
-fos_user:
-    db_driver: orm
-    firewall_name: main
-    user_class: AppBundle\Entity\User
-    from_email:
-        address: noreply@example.com
-        sender_name: Demo
-
-
-#Sonata configuration
-sonata_block:
-    default_contexts: [cms]
-    blocks:
-        # enable the SonataAdminBundle block
-        sonata.admin.block.admin_list:
-            contexts: [admin]
-        # ...
- 
-sonata_media:
-    # if you don't use default namespace configuration
-    #class:
-    #    media: MyVendor\MediaBundle\Entity\Media
-    #    gallery: MyVendor\MediaBundle\Entity\Gallery
-    #    gallery_has_media: MyVendor\MediaBundle\Entity\GalleryHasMedia
-    db_driver: doctrine_orm
-    default_context: default
-    contexts:
-        default:
-            providers:
-                - sonata.media.provider.dailymotion
-                - sonata.media.provider.youtube
-                - sonata.media.provider.image
-                - sonata.media.provider.file
-                - sonata.media.provider.vimeo
-
-            formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 500 , quality: 70}
-
-    cdn:
-        server:
-            path: /uploads/media
-
-    filesystem:
-        local:
-            directory:  "%kernel.root_dir%/../web/uploads/media"
-            create:     false
         
