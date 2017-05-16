@@ -66,7 +66,7 @@ class DefaultController extends Controller {
     
      private function sendEmail($data){
         $myappContactMail = 'torres.88.bcn@gmail.com';
-        $myappContactPassword = 'Mexicane88';
+        $myappContactPassword = '-'; //PONER AQUI EL PWD CORRESPONDIENTE
         
         // http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
         $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465,'ssl')
