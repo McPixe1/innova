@@ -57,9 +57,8 @@ class DefaultController extends Controller {
     }
 
     private function sendEmail($data) {
-        $myappContactMail = 'torres.88.bcn@gmail.com';
-        $myappContactPassword = '-'; //PONER AQUI EL PWD CORRESPONDIENTE
-        // http://ourcodeworld.com/articles/read/14/swiftmailer-send-mails-from-php-easily-and-effortlessly
+        $myappContactMail = 'dev.pepicast@gmail.com';
+        $myappContactPassword = 'pepicastftw'; //PONER AQUI EL PWD CORRESPONDIENTE
         $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
                 ->setUsername($myappContactMail)
                 ->setPassword($myappContactPassword);
@@ -71,7 +70,11 @@ class DefaultController extends Controller {
                 ->setTo(array(
                     $myappContactMail => $myappContactMail
                 ))
-                ->setBody($data["message"] . "<br>Contacto :" . $data["email"]);
+                ->setBody($this->renderView('mail/sendmail.html.twig', array(
+                    'message' => $data["message"],
+                    'email' => $data["email"]
+                )), 'text/html');
+
 
         return $mailer->send($message);
     }
