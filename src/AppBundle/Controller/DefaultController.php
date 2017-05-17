@@ -6,6 +6,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use AppBundle\Entity\Product;
 
 class DefaultController extends Controller {
@@ -18,6 +20,8 @@ class DefaultController extends Controller {
         return $this->render('innova/home.html.twig');
     }
 
+    
+    
     /**
      * @Route("/products", name="products")
      * 
@@ -28,12 +32,13 @@ class DefaultController extends Controller {
         return $this->render('innova/products.html.twig', ['products' => $products]);
     }
 
+    
+    
     /**
      * @Route("/contact", name="contact")
      * 
      */
     public function contactAction(Request $request) {
-
 
         $form = $this->createForm('AppBundle\Form\ContactType', null, array(
             'action' => $this->generateUrl('contact'),
@@ -45,7 +50,7 @@ class DefaultController extends Controller {
 
             if ($form->isValid()) {
                 if ($this->sendEmail($form->getData())) {
-                    return $this->redirectToRoute('homepage');
+                    return $this->redirectToRoute('contact');
                 } else {
                     var_dump("Error");
                 }
@@ -57,26 +62,18 @@ class DefaultController extends Controller {
     }
 
     private function sendEmail($data) {
-        $myappContactMail = 'dev.pepicast@gmail.com';
-        $myappContactPassword = 'pepicastftw'; //PONER AQUI EL PWD CORRESPONDIENTE
-        $transport = \Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, 'ssl')
-                ->setUsername($myappContactMail)
-                ->setPassword($myappContactPassword);
+        $myContactMail = 'dev.pepicast@gmail.com';
 
-        $mailer = \Swift_Mailer::newInstance($transport);
-
-        $message = \Swift_Message::newInstance($data["subject"])
-                ->setFrom(array($myappContactMail => "Mensaje de " . $data["name"]))
+        $message = \Swift_Message::newInstance()
+                ->setFrom(array($myContactMail => "Mensaje de " . $data["name"]))
                 ->setTo(array(
-                    $myappContactMail => $myappContactMail
+                    $myContactMail => $myContactMail
                 ))
                 ->setBody($this->renderView('mail/sendmail.html.twig', array(
                     'message' => $data["message"],
                     'email' => $data["email"]
                 )), 'text/html');
 
-
-        return $mailer->send($message);
+        return $this->get('mailer')->send($message);       
     }
-
 }
