@@ -47,32 +47,5 @@
         </footer>
 
     </div><!-- /.container -->
-    <script>
-        $("#contact_form").submit(function (e) {
-            e.preventDefault();
-            $.ajax({
-                type: 'POST',
-                data: $("#contact_form").serialize(),
-                url: 'url',
-                success: function () {
-                    $("#download_modal").modal("show");
-                }
-            });
-            return false;
-        });
-    </script>
-
-
-
-    <div id="download_modal" class="modal fade bs-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-sm">
-            <div class="modal-content" id="dialog-download">
-                <br/><br/><h2>Your Download is ready.</h2>
-                <hr/>
-                Your Download link is here<a id="download_link" target="_blank"> </a>
-                <br/>
-            </div>
-        </div>
-    </div>
 
 {% endblock %}
