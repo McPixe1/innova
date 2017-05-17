@@ -20,8 +20,6 @@ class DefaultController extends Controller {
         return $this->render('innova/home.html.twig');
     }
 
-    
-    
     /**
      * @Route("/products", name="products")
      * 
@@ -32,8 +30,6 @@ class DefaultController extends Controller {
         return $this->render('innova/products.html.twig', ['products' => $products]);
     }
 
-    
-    
     /**
      * @Route("/contact", name="contact")
      * 
@@ -49,10 +45,12 @@ class DefaultController extends Controller {
             $form->handleRequest($request);
 
             if ($form->isValid()) {
-                if ($this->sendEmail($form->getData())) {
+                $data = $form->getData();
+                if ($this->sendEmail($data)) {
+                    $this->addFlash('success', 'Tu correo se ha enviado correctamente');
                     return $this->redirectToRoute('contact');
                 } else {
-                    var_dump("Error");
+                    $this->addFlash('danger', 'Ha ocurrido un error en el envio del mensaje');
                 }
             }
         }
@@ -65,7 +63,8 @@ class DefaultController extends Controller {
         $myContactMail = 'dev.pepicast@gmail.com';
 
         $message = \Swift_Message::newInstance()
-                ->setFrom(array($myContactMail => "Mensaje de " . $data["name"]))
+                ->setSubject($data["subject"])
+                ->setFrom(array($data["email"] => $data["name"]))
                 ->setTo(array(
                     $myContactMail => $myContactMail
                 ))
@@ -74,6 +73,7 @@ class DefaultController extends Controller {
                     'email' => $data["email"]
                 )), 'text/html');
 
-        return $this->get('mailer')->send($message);       
+        return $this->get('mailer')->send($message);
     }
+
 }
