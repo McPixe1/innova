@@ -1,0 +1,52 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 17-may-2017, 23:14:28
+    Author     : samu
+*/
+
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-top: 56px;
+    padding-bottom: 3rem;
+    color: #5a5a5a;
+    background: #eee;
+}
+
+.container-fluid{
+    padding:0;
+}
+
+.header{
+    height: 120px;
+    background-color: #00a1e4;
+    color: white;
+    margin-bottom: 50px;
+    display: flex;
+    align-items: flex-end;
+}
+.header h2{
+    margin-bottom:20px;
+}
+
+section{
+    padding:90px 0px;
+}
+
+.featurette{
+    display:flex;
+    align-items: center;
+}
+.featurette .featurette-heading{
+    margin-top:0;
+}
+
+section.light{
+    background:#fff;
+}
