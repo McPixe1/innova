@@ -9,17 +9,28 @@
     </div>
     <div class="container marketing">
 
-        <!-- Three columns of text below the carousel -->
         <div class="row">
+            <div class="col-lg-3">
+                <ul>
+                    {% for category in all_categories %}
+                        <li><a href="{{ path('products_filtered',{ 'categoryFilter' : category.name})}}">{{category.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-lg-9">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-4">
+                            <img class="rounded-circle" src="{% path product.picture, 'small' %}" alt="Generic placeholder image" width="140" height="140">
+                            <h2>{{product.name}}</h2>
+                            <p>{{ product.description}}</p>
+                            <p>{{ product.category.name }}</p>
+                            <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
+                        </div><!-- /.col-lg-4 -->
+                    {% endfor %}
+                </div>
+            </div>
 
-            {% for product in products %}
-                <div class="col-lg-4">
-                    <img class="rounded-circle" src="{% path product.picture, 'small' %}" alt="Generic placeholder image" width="140" height="140">
-                    <h2>{{product.name}}</h2>
-                    <p>{{ product.description}}</p>
-                    <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
-                </div><!-- /.col-lg-4 -->
-            {% endfor %}
         </div><!-- /.row -->
 
 

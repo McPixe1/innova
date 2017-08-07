@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use AppBundle\Entity\Product;
+use AppBundle\Entity\Category;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller {
@@ -27,8 +28,23 @@ class DefaultController extends Controller {
      */
     public function productShowAction() {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
+        $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
 
-        return $this->render('innova/products.html.twig', ['products' => $products]);
+        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories]);
+    }
+
+    /**
+     * @Route("/products/{categoryFilter}", name="products_filtered")
+     * 
+     */
+    public function productFilteredShowAction($categoryFilter) {
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT p from AppBundle\Entity\Product p JOIN p.category c WHERE c.name = :category");
+        $query->setParameter('category', $categoryFilter);
+        $products = $query->getResult();
+        $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+
+        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories]);
     }
 
     /**
