@@ -1,3 +1,8 @@
+sonata_admin:
+    templates:
+        # default global templates
+        layout:  SonataAdminBundle::layout.html.twig
+
 sonata_block:
     default_contexts: [cms]
     blocks:

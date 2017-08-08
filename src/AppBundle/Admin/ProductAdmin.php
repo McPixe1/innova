@@ -13,6 +13,9 @@ class ProductAdmin extends AbstractAdmin {
         $formMapper
                 ->add('name', 'text')
                 ->add('description', 'textarea')
+                ->add('longDescription', 'sonata_simple_formatter_type', array(
+                    'format' => 'richhtml',
+                ))
                 ->add('category', 'sonata_type_model', array(
                     'class' => 'AppBundle\Entity\Category',
                     'property' => 'name'
