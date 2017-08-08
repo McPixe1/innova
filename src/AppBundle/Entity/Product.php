@@ -28,6 +28,16 @@ class Product {
      * @ORM\Column(type="text")
      */
     protected $description;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $longDescription;
+    
+    /**
+     * @ORM\Column(type="text")
+     */
+    protected $specs;
 
     /**
      * @ORM\Column(type="decimal", scale=2)
@@ -146,6 +156,52 @@ class Product {
     public function getDescription() {
         return $this->description;
     }
+    
+     /**
+     * Set longDescription
+     *
+     * @param string $longDescription
+     *
+     * @return Product
+     */
+    public function setLongDescription($longDescription) {
+        $this->longDescription = $longDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get longDescription
+     *
+     * @return string
+     */
+    public function getLongDescription() {
+        return $this->longDescription;
+    }
+    
+     /**
+     * Set specs
+     *
+     * @param string $specs
+     *
+     * @return Product
+     */
+    public function setSpecs($specs) {
+        $this->specs = $specs;
+
+        return $this;
+    }
+
+    /**
+     * Get longDescription
+     *
+     * @return string
+     */
+    public function getSpecs() {
+        return $this->specs;
+    }
+    
+    
 
 
     /**
