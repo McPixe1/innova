@@ -9,13 +9,13 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item {% if app.request.attributes.get('_route') == 'homepage' %}active{% endif %}">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="{{ path('homepage')}}">Inicio</a>
                 </li>
                 <li class="nav-item {% if app.request.attributes.get('_route') == 'products' or app.request.attributes.get('_route') == 'products_filtered' %}active{% endif %}">
                     <a class="nav-link" href="{{ path('products')}}">Productos</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Galería</a>
+                <li class="nav-item {% if app.request.attributes.get('_route') == 'gallery' %}active{% endif %}">
+                    <a class="nav-link" href="{{ path('gallery')}}">Galería</a>
                 </li>
                 <li class="nav-item {% if app.request.attributes.get('_route') == 'contact' %}active{% endif %}">
                     <a class="nav-link" href="{{ path('contact')}}">Contacto</a>

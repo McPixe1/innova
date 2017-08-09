@@ -48,6 +48,13 @@ class DefaultController extends Controller {
     }
 
     /**
+     * @Route("/gallery", name="gallery")
+     */
+    public function galleryAction() {
+        return $this->render('innova/gallery.html.twig');
+    }
+
+    /**
      * @Route("/contact", name="contact")
      * 
      */
