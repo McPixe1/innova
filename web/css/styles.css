@@ -8,6 +8,10 @@ body {
     padding:0;
 }
 
+.container.main{
+    padding-bottom: 70px;
+}
+
 .header{
     position:relative;
     height: 200px;
@@ -145,6 +149,15 @@ textarea{
     -ms-transition: all .35s ease;
     -o-transition: all .35s ease;
     transition: all .35s ease;
+}
+.gallery-item .mask h3{
+    margin-top: 70px;
+    font-size: 23px;
+}
+.gallery-item .mask p{
+    color: #bfceec;
+    font-size: 15px;
+    font-weight: 600;
 }
 .gallery-item .pic{
     display: block;

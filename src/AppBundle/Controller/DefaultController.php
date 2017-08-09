@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Category;
+use AppBundle\Entity\Project;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller {
@@ -29,29 +30,35 @@ class DefaultController extends Controller {
     public function productShowAction() {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        
+        $currentTab = null;
 
-        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories]);
+        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories, 'current_tab' => $currentTab]);
     }
 
     /**
-     * @Route("/products/{categoryFilter}", name="products_filtered")
+     * @Route("/products/{category}", name="products_filtered")
      * 
      */
-    public function productFilteredShowAction($categoryFilter) {
+    public function productFilteredShowAction($category) {
         $em = $this->getDoctrine()->getManager();
-        $query = $em->createQuery("SELECT p from AppBundle\Entity\Product p JOIN p.category c WHERE c.name = :category");
-        $query->setParameter('category', $categoryFilter);
+        $query = $em->createQuery("SELECT p from AppBundle\Entity\Product p JOIN p.category c WHERE c.id = :category");
+        $query->setParameter('category', $category);
         $products = $query->getResult();
         $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
+        
+        $currentTab = $category;
 
-        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories]);
+
+        return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories, 'current_tab' => $currentTab]);
     }
 
     /**
      * @Route("/gallery", name="gallery")
      */
     public function galleryAction() {
-        return $this->render('innova/gallery.html.twig');
+        $projects = $this->getDoctrine()->getRepository(Project::class)->findAll();
+        return $this->render('innova/gallery.html.twig', ['projects' => $projects]);
     }
 
     /**

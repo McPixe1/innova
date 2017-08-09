@@ -18,3 +18,9 @@ services:
         arguments: [~, AppBundle\Entity\Product, ~]
         tags:
             - { name: sonata.admin, manager_type: orm, label: Product }
+            
+    admin.project:
+        class: AppBundle\Admin\ProjectAdmin
+        arguments: [~, AppBundle\Entity\Project, ~]
+        tags:
+            - { name: sonata.admin, manager_type: orm, label: Project }

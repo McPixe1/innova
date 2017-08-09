@@ -7,24 +7,26 @@
             <h2>Productos</h2>
         </div>
     </div>
-    <div class="container marketing">
+    <div class="container main">
 
         <div class="row">
             <div class="col-lg-3">
-                <ul>
-                    {% for category in all_categories %}
-                        <li><a href="{{ path('products_filtered',{ 'categoryFilter' : category.name})}}">{{category.name}}</a></li>
-                    {% endfor %}
-                </ul>
+                <div class="list-group">
+                    <a class="list-group-item list-group-item-action {% if app.request.attributes.get('_route') == 'products' %} active {% endif %}" href="{{ path('products')}}">Ver todo</a>
+                    {% for category in all_categories %}           
+                        <a class="list-group-item list-group-item-action {% if category.id == current_tab %} active {% endif %}" href="{{ path('products_filtered',{ 'category' : category.id })}}">{{category.name}}</a>
+                    {% endfor %}                   
+                </div>
+
             </div>
             <div class="col-lg-9">
                 <div class="row">
                     {% for product in products %}
                         <div class="col-lg-4">
-                            <img class="rounded-circle" src="{% path product.picture, 'small' %}" alt="Generic placeholder image" width="140" height="140">
+                            <img class="rounded-circle" src="{% path product.picture, 'big' %}" alt="Generic placeholder image" width="140" height="140">
                             <h2>{{product.name}}</h2>
                             <p>{{ product.description }}</p>
-                            <p>{{ product.longDescription | raw}}</p>
+                            {# <p>{{ product.longDescription | raw}}</p>#}
                             <p>{{ product.category.name }}</p>
                             <p><a class="btn btn-secondary" href="#" role="button">View details &raquo;</a></p>
                         </div><!-- /.col-lg-4 -->
