@@ -52,6 +52,18 @@ class DefaultController extends Controller {
 
         return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories, 'current_tab' => $currentTab]);
     }
+    
+    
+      /**
+     * @Route("/product/{id}", name="product")
+     * 
+     */
+    public function productAction($id) {
+        $product = $this->getDoctrine()->getRepository(Product::class)->findOneBy(array('id' => $id));
+
+        return $this->render('innova/product.html.twig', ['product' => $product]);
+    }
+    
 
     /**
      * @Route("/gallery", name="gallery")
