@@ -20,7 +20,15 @@ class DefaultController extends Controller {
      * 
      */
     public function indexAction(Request $request) {
-        return $this->render('innova/home.html.twig');
+        $em = $this->getDoctrine()->getManager();
+        
+        $queryProducts = $em->createQuery("SELECT p from AppBundle\Entity\Product p")->setMaxResults(4);
+        $products = $queryProducts->getResult();
+
+        $queryProjects = $em->createQuery("SELECT pr from AppBundle\Entity\Project pr ORDER BY pr.id DESC")->setMaxResults(3);
+        $projects = $queryProjects->getResult();
+
+        return $this->render('innova/home.html.twig', ['products' => $products, 'projects' => $projects]);
     }
 
     /**
@@ -30,7 +38,7 @@ class DefaultController extends Controller {
     public function productShowAction() {
         $products = $this->getDoctrine()->getRepository(Product::class)->findAll();
         $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        
+
         $currentTab = null;
 
         return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories, 'current_tab' => $currentTab]);
@@ -46,15 +54,14 @@ class DefaultController extends Controller {
         $query->setParameter('category', $category);
         $products = $query->getResult();
         $all_categories = $this->getDoctrine()->getRepository(Category::class)->findAll();
-        
+
         $currentTab = $category;
 
 
         return $this->render('innova/products.html.twig', ['products' => $products, 'all_categories' => $all_categories, 'current_tab' => $currentTab]);
     }
-    
-    
-      /**
+
+    /**
      * @Route("/product/{id}", name="product")
      * 
      */
@@ -63,7 +70,6 @@ class DefaultController extends Controller {
 
         return $this->render('innova/product.html.twig', ['product' => $product]);
     }
-    
 
     /**
      * @Route("/gallery", name="gallery")

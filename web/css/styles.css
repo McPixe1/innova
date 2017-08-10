@@ -44,7 +44,7 @@ body {
     margin:0;
     text-align:center;
     font-weight: 600;
-    color: #c4e2f5;
+    color: #bfceec;
 }
 
 section{
@@ -67,6 +67,9 @@ section{
 }
 .featurette .featurette-heading{
     margin-top:0;
+    margin-bottom:50px;
+    text-align: center;
+    font-size: 24px;
 }
 
 section.light{
@@ -162,6 +165,10 @@ table th, table td{
     color:#dadada;
     width:100%;
 }
+.nav-info .caption{
+    float:left;
+    font-size: 12px;
+}
 .nav-info .phone i{
     margin-right: 5px;
     font-size: 14px;
@@ -201,6 +208,68 @@ table th, table td{
     background-image:none;
     text-shadow:none;
 }
+
+/*-------------- HOME ---------------------*/
+
+.home-hero{
+    background-position: center 0;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 540px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.home-hero:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background: rgba(58,71,90,.85);
+}
+.hero-content{
+    position: relative;
+    z-index: 9;
+}
+.home-hero h1{
+    color: #fff;
+    line-height: 46px;
+    font-size: 30px;
+    text-align: center;
+    position: relative;
+}
+.home-hero p{
+    text-align: center;
+    color: #c3cada;
+    font-size: 16px;
+    position: relative;
+}
+.home-hero .btn-primary{
+    width:auto;
+    padding:12px 20px;
+    margin-top: 50px;
+    margin-bottom: 0;
+}
+.feature{
+    text-align: center;
+}
+.feature .icon i{
+    font-size: 75px;
+    border: 3px solid;
+    width: 100px;
+    height: 100px;
+    line-height: 100px;
+    border-radius: 50%;
+    color: #31708f;
+    margin-bottom: 15px;
+}
+.feature h2{
+    color: #31708f;
+}
+
 
 /*------------- PRODUCTOS -----------------*/
 
