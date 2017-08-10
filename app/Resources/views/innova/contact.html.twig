@@ -16,13 +16,11 @@
 
             <div class="col-lg-12">
                 <div class="contact-form">
-                    <h2 class="text-center">Hola ke ase</h2>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
-                        sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam
-                    <p>
-                        {{ form_start(form, {'attr': {'id': 'contact_form'}}) }}
+                    <div class=" context">
+                        <h2>Hola que ase</h2>
+                        <p class="">Lorem ipsum dolor sit amet</p>
+                    </div>
+                    {{ form_start(form, {'attr': {'id': 'contact_form'}}) }}
 
                     <div style="margin-bottom: 15px;">
                         {{ form_widget(form.subject) }}

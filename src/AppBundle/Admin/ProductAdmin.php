@@ -16,6 +16,9 @@ class ProductAdmin extends AbstractAdmin {
                 ->add('longDescription', 'sonata_simple_formatter_type', array(
                     'format' => 'richhtml',
                 ))
+                ->add('specs', 'sonata_simple_formatter_type', array(
+                    'format' => 'richhtml',
+                ))
                 ->add('category', 'sonata_type_model', array(
                     'class' => 'AppBundle\Entity\Category',
                     'property' => 'name'

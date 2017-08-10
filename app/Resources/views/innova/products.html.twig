@@ -2,7 +2,8 @@
 
 {% block body %}
 
-    <div class="header">
+    <div class="header" style="background-image:url({{ asset('img/light-panel.jpg') }})">
+        <div class="overlay"></div>
         <div class="container">
             <h2>Productos</h2>
         </div>
@@ -23,7 +24,7 @@
                 <div class="row">
                     {% for product in products %}
 
-                        <div class="col-lg-4 col-md-6 col-sm-6">
+                        <div class="col-lg-3 col-md-4 col-sm-6">
                             <div class='product'>
                                 <a href="{{ path('product',{ 'id' : product.id })}}" style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></a>
                                 <div class="info">
