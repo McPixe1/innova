@@ -2,10 +2,10 @@
 
 {% block body %}
 
-    <div class="header" style="background-image:url({{ asset('img/light-panel.jpg') }})">
-        <div class="overlay"></div>
+    <div class="header">
         <div class="container">
             <h2>Galería</h2>
+            <p>Lorem ipsum dolor sit amet</p>
         </div>
     </div>
 
@@ -16,10 +16,7 @@
             </div>
         </div>
         <div class="row no-gutters gallery">
-            <div class="col-lg-12 context">
-                <h2>Hola que ase</h2>
-                <p class="">Lorem ipsum dolor sit amet</p>
-            </div>
+
             {% for project in projects %}
                 <div class="col-md-6 col-lg-4">
                     <div href="" class="gallery-item">

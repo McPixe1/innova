@@ -1,5 +1,4 @@
 body {
-    padding-top: 68px;
     color: #5a5a5a;
     background: #eee;
     font-family: 'Lato', sans-serif;
@@ -17,12 +16,12 @@ body {
 
 .header{
     position:relative;
-    height: 200px;
+    height: 140px;
     background-image: linear-gradient(310deg,#272b53 0,#4f7296 90%);
     color: white;
     margin-bottom: 50px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     background-size: cover;
     background-position: 50% 50%;
 }
@@ -37,7 +36,15 @@ body {
     background: rgba(0,0,0,0.3);
 }
 .header h2{
-    margin-bottom:20px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    text-align: center;
+}
+.header p{
+    margin:0;
+    text-align:center;
+    font-weight: 600;
+    color: #c4e2f5;
 }
 
 section{
@@ -94,7 +101,7 @@ section.light{
 
 input[type=text], input[type=email]{
     font-size: 16px;
-    margin-top: 20px;
+    margin-bottom: 15px;
     outline: 0;
     color: #888;
     background: #fff;
@@ -111,7 +118,7 @@ input[type=text], input[type=email]{
 
 textarea{
     font-size: 16px;
-    margin-top: 20px;
+    margin-bottom: 15px;
     outline: 0;
     color: #888;
     background: #fff;
@@ -146,6 +153,54 @@ table th, table td{
     background-color: #048cbf;
 }
 
+/*------------- NAVBAR --------------------*/
+
+.nav-info{
+    background: #212427;
+    height: 36px;
+    line-height: 36px;
+    color:#dadada;
+    width:100%;
+}
+.nav-info .phone i{
+    margin-right: 5px;
+    font-size: 14px;
+    font-weight: 600;
+    width:12px;
+    height:14px;
+    position: relative;
+    float: left;
+    top: 11px;
+}
+.navbar{
+    background:white;
+    width:100%;
+    height:68px;
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+}
+
+.navbar input{
+    font-size:14px;
+    padding: 6px 15px;
+    margin:0;
+    background:#eee;
+    margin-left:15px;
+    border-color: #eee;
+    width: 170px !important;
+}
+.navbar .btn-primary{
+    width: 100%;
+    padding: 6px 12px;
+    margin:0;
+    box-shadow: none;
+    width:40px;
+    height:34px;
+    color: #777;
+    background-color: #eeeeee;
+    border-color: #eeeeee;
+    background-image:none;
+    text-shadow:none;
+}
 
 /*------------- PRODUCTOS -----------------*/
 
@@ -275,10 +330,37 @@ table th, table td{
     width: 100%;
 }
 
+.contact-form .btn-primary{
+    margin-top:10px;
+}
+
 /*-------------- FOOTER ----------------*/
 
 footer{
     padding: 70px 0 90px;
-    background: #353d4d;
+    background: #212427;
     position: relative;
+}
+
+
+/*------------ MEDIA QUERIES -------------*/
+@media (min-width: 992px){
+    .navbar-toggleable-md .navbar-nav .nav-link{
+        padding-right: .8rem;
+        padding-left: .8rem;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 14px;
+        position:relative;
+    }
+    /*    .navbar-toggleable-md .navbar-nav .nav-item.active .nav-link:after{
+            content: '';
+            height: 3px;
+            width: 85%;
+            position: Absolute;
+            background: #10a4df;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+        }*/
 }
