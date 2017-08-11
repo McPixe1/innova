@@ -1,0 +1,15 @@
+{% extends 'FOSUserBundle::layout.html.twig' %}
+
+
+{% block fos_user_content %}
+    <div class="login-page">
+        <div class="login-header">
+            <img src="{{ asset('img/logo-innova.png') }}" alt="logo">
+        </div>
+        <div class="login-form">
+            {{ include('@FOSUser/Security/login_content.html.twig') }}
+        </div>
+    </div>
+
+
+{% endblock fos_user_content %}

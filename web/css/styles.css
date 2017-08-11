@@ -1,8 +1,10 @@
+html, body{
+    min-height:100%;
+}
 body {
     color: #5a5a5a;
     background: #eee;
     font-family: 'Lato', sans-serif;
-    /*font-family: 'Raleway', sans-serif;*/
 }
 
 .container-fluid{
@@ -124,7 +126,7 @@ section.light{
 
 /* ---------------- FORMS ----------------*/
 
-input[type=text], input[type=email]{
+input[type=text], input[type=email], input[type=password]{
     font-size: 16px;
     margin-bottom: 15px;
     outline: 0;
@@ -230,6 +232,28 @@ table th, table td{
     border-color: #eeeeee;
     background-image:none;
     text-shadow:none;
+}
+
+/*-------------- LOGIN --------------------*/
+
+.login-body{
+    background-image: linear-gradient(310deg,#44718a 0,#273f4a 90%);
+}
+.login-page .login-header img{
+    width: 250px;
+    margin: 45px auto 60px;
+    display: block;
+}
+
+.login-page .login-form{
+    width: 360px;
+    margin: 45px auto 60px;
+}
+.login-page .login-form input{
+    margin-bottom:20px;
+}
+.login-page .login-form label{
+    color:white;
 }
 
 /*-------------- HOME ---------------------*/

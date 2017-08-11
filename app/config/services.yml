@@ -11,16 +11,16 @@ services:
         class: AppBundle\Admin\CategoryAdmin
         arguments: [~, AppBundle\Entity\Category, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Category }
+            - { name: sonata.admin, manager_type: orm, label: Categorías }
 
     admin.product:
         class: AppBundle\Admin\ProductAdmin
         arguments: [~, AppBundle\Entity\Product, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Product }
+            - { name: sonata.admin, manager_type: orm, label: Productos }
             
     admin.project:
         class: AppBundle\Admin\ProjectAdmin
         arguments: [~, AppBundle\Entity\Project, ~]
         tags:
-            - { name: sonata.admin, manager_type: orm, label: Project }
+            - { name: sonata.admin, manager_type: orm, label: Proyectos }

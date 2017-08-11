@@ -1,0 +1,17 @@
+sonata_admin:
+    templates:
+        # Sobreescribimos el template para añadir los js/css de CKEditor
+        layout:  SonataAdminBundle::layout.html.twig
+    dashboard:
+        groups:
+            sonata_administration:
+                label: Administración
+                items:
+                     - admin.product
+                     - admin.category
+                     - admin.project     
+        blocks:
+            -
+                position: left
+                type: sonata.admin.block.admin_list
+

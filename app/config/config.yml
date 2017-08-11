@@ -5,6 +5,8 @@ imports:
     #FOSUserBUndle configuration
     - { resource: fos/fos_user.yml }
     #Sonata configuration
+    - { resource: sonata/sonata_admin.yml }
+    - { resource: sonata/sonata_formatter.yml }
     - { resource: sonata/sonata_block.yml }
     - { resource: sonata/sonata_classification.yml }
     - { resource: sonata/sonata_media.yml }
@@ -51,45 +53,6 @@ twig:
        # - 'bootstrap_3_horizontal_layout.html.twig'
 
 
-
-sonata_formatter:
-    default_formatter: text
-    formatters:
-        markdown:
-            service: sonata.formatter.text.markdown
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig 
-
-
-        text:
-            service: sonata.formatter.text.text
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        rawhtml:
-            service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        richhtml:
-            service: sonata.formatter.text.raw
-            extensions:
-                - sonata.formatter.twig.control_flow
-                - sonata.formatter.twig.gist
-                - sonata.media.formatter.twig
-
-
-        twig:
-            service: sonata.formatter.text.twigengine
-            extensions: [] 
     
 # Doctrine Configuration
 doctrine:
@@ -128,3 +91,5 @@ swiftmailer:
     password: '%mailer_password%'
     spool: { type: memory }
         
+
+   
