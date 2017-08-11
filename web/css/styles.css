@@ -100,6 +100,28 @@ section.light{
     transition: all .2s;
 }
 
+.btn-secondary{
+    color: #2c394d;
+    background-color: #fff;
+    border-color: #ccc;
+    border: 0;
+    font-weight: 600;
+    display: inline-block;
+    box-shadow: rgba(23,43,99,.24) 0 3px 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    padding: 12px 23px;
+    text-shadow: 1px 1px rgba(0,0,0,.09);
+    border-radius: 4px;
+    cursor: pointer;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    -ms-transition: all .2s;
+    -o-transition: all .2s;
+    transition: all .2s;
+}
+
 /* ---------------- FORMS ----------------*/
 
 input[type=text], input[type=email]{
@@ -189,7 +211,7 @@ table th, table td{
 
 .navbar input{
     font-size:14px;
-    padding: 6px 15px;
+    padding: 8px 15px 6px 15px;
     margin:0;
     background:#eee;
     margin-left:15px;
@@ -198,7 +220,7 @@ table th, table td{
 }
 .navbar .btn-primary{
     width: 100%;
-    padding: 6px 12px;
+    padding: 4px 12px;
     margin:0;
     box-shadow: none;
     width:40px;
@@ -416,21 +438,11 @@ footer{
 /*------------ MEDIA QUERIES -------------*/
 @media (min-width: 992px){
     .navbar-toggleable-md .navbar-nav .nav-link{
-        padding-right: .8rem;
-        padding-left: .8rem;
         text-transform: uppercase;
         font-weight: 600;
         font-size: 14px;
         position:relative;
+        line-height: 39px;
+        padding: .8em 1em .5em 1em;
     }
-    /*    .navbar-toggleable-md .navbar-nav .nav-item.active .nav-link:after{
-            content: '';
-            height: 3px;
-            width: 85%;
-            position: Absolute;
-            background: #10a4df;
-            bottom: -16px;
-            left: 50%;
-            transform: translateX(-50%);
-        }*/
 }
