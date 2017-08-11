@@ -9,41 +9,57 @@
     </div>
     <div class="container main">
         <div class="product-content">
-
-            <div class="row">
+            <div class="row no-gutters">
                 <div class="col-md-5">
-                    <div style="background-image:url('{% path product.picture, 'big' %}');" class="main-pic">
-                    </div>
+                    <div style="background-image:url('{% path product.picture, 'big' %}');" class="card-image-top main-pic"></div>
                 </div>
-                <div class="col-md-7 info">
-
-                    <div class="description">
-                        <ul class="nav nav-tabs" role="tablist">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#description" role="tab" data-toggle="tab" aria-expanded="true">Descripción</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#details" role="tab" data-toggle="tab" aria-expanded="false">Características técnicas</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#requirements" role="tab" data-toggle="tab" aria-expanded="false">Componentes</a>
-                            </li>
-                        </ul>
-
-                        <!-- Tab panes -->
-                        <div class="tab-content">
-                            <div role="tabpanel" class="tab-pane active" id="description" aria-expanded="true">
-                                {{product.description}}
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="details" aria-expanded="false">
-                                {{product.longDescription | raw}}
-                            </div>
-                            <div role="tabpanel" class="tab-pane" id="requirements" aria-expanded="false">
-                                {{product.specs | raw}}
+                <div class="col-md-7">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" href="#description" role="tab" data-toggle="tab" aria-expanded="true">Descripción</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#details" role="tab" data-toggle="tab" aria-expanded="false">Características técnicas</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#requirements" role="tab" data-toggle="tab" aria-expanded="false">Componentes</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-block">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="description" aria-expanded="true">
+                                    {{product.description}}
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="details" aria-expanded="false">
+                                    {{product.longDescription | raw}}
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="requirements" aria-expanded="false">
+                                    {{product.specs | raw}}
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="related">
+            <h2>También te puede interesar</h2>
+            <div class="row">
+                {% for item in related %}
+                    <div class="col-lg-3 col-md-4 col-sm-6">
+                        <div class='product'>
+                            <a href="{{ path('product',{ 'id' : item.id })}}" style="background-image:url('{% path item.picture, 'big' %}');" class='product-pic'></a>
+                            <div class="info">
+                                <p class="name">{{item.name}}</p>
+                                <p class="description">{{ item.description }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
         </div>
 

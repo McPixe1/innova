@@ -21,7 +21,7 @@ class DefaultController extends Controller {
      */
     public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
-        
+
         $queryProducts = $em->createQuery("SELECT p FROM AppBundle\Entity\Product p WHERE p.isImportant = true")->setMaxResults(4);
         $products = $queryProducts->getResult();
 
@@ -67,8 +67,15 @@ class DefaultController extends Controller {
      */
     public function productAction($id) {
         $product = $this->getDoctrine()->getRepository(Product::class)->findOneBy(array('id' => $id));
+        $category = $product->getCategory();
 
-        return $this->render('innova/product.html.twig', ['product' => $product]);
+        $em = $this->getDoctrine()->getManager();
+        $query = $em->createQuery("SELECT p from AppBundle\Entity\Product p JOIN p.category c WHERE c.id = :category AND p.id != :id")->setMaxResults(4);
+        $query->setParameter('category', $category);
+        $query->setParameter('id', $id);
+        $related = $query->getResult();
+
+        return $this->render('innova/product.html.twig', ['product' => $product, 'related' => $related]);
     }
 
     /**
