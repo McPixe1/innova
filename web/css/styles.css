@@ -433,6 +433,56 @@ footer{
     background: #212427;
     position: relative;
 }
+footer .title{
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+footer .menu{
+    list-style-type: none;
+    padding: 0;
+    margin-top: 30px;
+}
+footer .menu a{
+    color: #cdd6e9;
+    display: inline-block;
+    margin-bottom: 9px;
+    text-decoration: none;
+    -webkit-transition: all .2s linear;
+    -moz-transition: all .2s linear;
+    -ms-transition: all .2s linear;
+    -o-transition: all .2s linear;
+    transition: all .2s linear;
+}
+footer .bottom{
+    margin-top: 40px;
+    border-top: 1px solid #3a455a;
+}
+footer .bottom p{
+    text-align: center;
+    margin: 15px 0px;
+    color: #9daac2;
+    text-transform: uppercase;
+    font-size: 11px;
+}
+
+.footer-contact img{
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 30px;
+    display: block;
+}
+.footer-contact p{
+    color: #cdd6e9;
+    margin-bottom: 9px;
+    font-weight:bold;
+}
+.footer-contact p span{
+    font-weight:400;
+}
+
 
 
 /*------------ MEDIA QUERIES -------------*/
