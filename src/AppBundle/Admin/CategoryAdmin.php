@@ -11,7 +11,9 @@ class CategoryAdmin extends AbstractAdmin
 {
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', 'text');
+        $formMapper->add('name', 'text', array(
+                    'label' => 'Nombre'
+                ));
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)

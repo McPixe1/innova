@@ -22,10 +22,10 @@ class DefaultController extends Controller {
     public function indexAction(Request $request) {
         $em = $this->getDoctrine()->getManager();
         
-        $queryProducts = $em->createQuery("SELECT p from AppBundle\Entity\Product p")->setMaxResults(4);
+        $queryProducts = $em->createQuery("SELECT p FROM AppBundle\Entity\Product p WHERE p.isImportant = true")->setMaxResults(4);
         $products = $queryProducts->getResult();
 
-        $queryProjects = $em->createQuery("SELECT pr from AppBundle\Entity\Project pr ORDER BY pr.id DESC")->setMaxResults(3);
+        $queryProjects = $em->createQuery("SELECT pr FROM AppBundle\Entity\Project pr ORDER BY pr.id DESC")->setMaxResults(3);
         $projects = $queryProjects->getResult();
 
         return $this->render('innova/home.html.twig', ['products' => $products, 'projects' => $projects]);

@@ -28,21 +28,21 @@ class Product {
      * @ORM\Column(type="text")
      */
     protected $description;
-    
+
     /**
      * @ORM\Column(type="text")
      */
     protected $longDescription;
-    
+
     /**
      * @ORM\Column(type="text")
      */
     protected $specs;
 
     /**
-     * @ORM\Column(type="decimal", scale=2)
+     * @ORM\Column(type="boolean", options={"default": false})
      */
-    protected $price;
+    protected $isImportant;
 
     /**
      * @ORM\ManyToOne(targetEntity="Category", inversedBy="products")
@@ -67,28 +67,6 @@ class Product {
      */
     public function getId() {
         return $this->id;
-    }
-
-    /**
-     * Set price
-     *
-     * @param string $price
-     *
-     * @return Product
-     */
-    public function setPrice($price) {
-        $this->price = $price;
-
-        return $this;
-    }
-
-    /**
-     * Get price
-     *
-     * @return string
-     */
-    public function getPrice() {
-        return $this->price;
     }
 
     /**
@@ -156,8 +134,8 @@ class Product {
     public function getDescription() {
         return $this->description;
     }
-    
-     /**
+
+    /**
      * Set longDescription
      *
      * @param string $longDescription
@@ -178,8 +156,8 @@ class Product {
     public function getLongDescription() {
         return $this->longDescription;
     }
-    
-     /**
+
+    /**
      * Set specs
      *
      * @param string $specs
@@ -200,9 +178,22 @@ class Product {
     public function getSpecs() {
         return $this->specs;
     }
-    
-    
 
+    /**
+     * 
+     * @param type $isImportant
+     */
+    public function setIsImportant($isImportant) {
+        $this->isImportant = $isImportant;
+    }
+
+    /**
+     * 
+     * @return type
+     */
+    public function getIsImportant() {
+        return $this->isImportant;
+    }
 
     /**
      * Set picture
@@ -211,8 +202,7 @@ class Product {
      *
      * @return Product
      */
-    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null)
-    {
+    public function setPicture(\Application\Sonata\MediaBundle\Entity\Media $picture = null) {
         $this->picture = $picture;
 
         return $this;
@@ -223,8 +213,8 @@ class Product {
      *
      * @return \Application\Sonata\MediaBundle\Entity\Media
      */
-    public function getPicture()
-    {
+    public function getPicture() {
         return $this->picture;
     }
+
 }

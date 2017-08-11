@@ -168,6 +168,7 @@ table th, table td{
 .nav-info .caption{
     float:left;
     font-size: 12px;
+    text-transform:uppercase;
 }
 .nav-info .phone i{
     margin-right: 5px;

@@ -11,22 +11,32 @@ class ProductAdmin extends AbstractAdmin {
 
     protected function configureFormFields(FormMapper $formMapper) {
         $formMapper
-                ->add('name', 'text')
-                ->add('description', 'textarea')
+                ->add('name', 'text', array(
+                    'label' => 'Nombre'
+                ))
+                ->add('description', 'textarea', array(
+                    'label' => 'Descripción'
+                ))
                 ->add('longDescription', 'sonata_simple_formatter_type', array(
                     'format' => 'richhtml',
+                    'label' => 'Especificaciones'
                 ))
                 ->add('specs', 'sonata_simple_formatter_type', array(
                     'format' => 'richhtml',
+                    'label' => 'Componentes'
                 ))
                 ->add('category', 'sonata_type_model', array(
                     'class' => 'AppBundle\Entity\Category',
-                    'property' => 'name'
+                    'property' => 'name',
+                    'label' => 'Categoría'
                 ))
-                ->add('price', 'text')
+                ->add('isImportant', 'checkbox', array(
+                    'label' => 'Destacado'
+                ))
                 ->add('picture', 'sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',
-                    'context' => 'default'
+                    'context' => 'default',
+                    'label' => 'Imagen'
         ));
     }
 
