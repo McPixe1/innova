@@ -239,6 +239,9 @@ table th, table td{
 .login-body{
     background-image: linear-gradient(310deg,#44718a 0,#273f4a 90%);
 }
+.login-page .login-header{
+    margin-top:80px;
+}
 .login-page .login-header img{
     width: 250px;
     margin: 45px auto 60px;
