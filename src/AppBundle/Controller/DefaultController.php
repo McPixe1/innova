@@ -115,6 +115,29 @@ class DefaultController extends Controller {
         ));
     }
 
+//    /**
+//     * @Route("/search", name="search")
+//     * 
+//     */
+//    public function searchAction(Request $request) {
+//
+//         $data = json_decode($request->getContent(), true);
+//
+//
+//        dump($data);
+//        $em = $this->getDoctrine()->getManager();
+//        $query = $em->createQuery(
+//                        'SELECT p.name, p.id
+//        FROM AppBundle\Entity\Product p
+//        WHERE p.name LIKE :data')
+//                ->setParameter('data', $data);
+//
+//        $res = $query->getResult();
+//
+//        return $this->render('innova/search.html.twig', array(
+//                    'res' => $res));
+//    }
+
     private function sendEmail($data) {
         $myContactMail = 'dev.pepicast@gmail.com';
 

@@ -1,0 +1,40 @@
+{% extends 'section_layout.html.twig' %}
+
+{% block body %}
+
+    {% block section_header %}
+        <div class="header">
+            <div class="container">
+                <h2>Búsqueda</h2>
+                <p>Échale un vistazo a nuestro catálogo</p>
+            </div>
+        </div>
+    {% endblock %}
+
+    {% block section_breadcrumb %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block section_body %}
+
+        <div class="container main">
+
+            <div class="row">          
+                <div class="col-lg-12">
+                    <div class="row">
+                        {#% for product in products %}
+
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                {% include ('innova/partials/product_item.html.twig')%}
+                            </div>
+                        {% endfor %#}
+                    </div>
+                </div>
+
+            </div><!-- /.row -->
+
+
+        </div><!-- /.container -->
+    {% endblock %}
+
+{% endblock %}
