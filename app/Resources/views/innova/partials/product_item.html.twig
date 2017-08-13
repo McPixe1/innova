@@ -1,0 +1,7 @@
+<div class='product'>
+    <a href="{{ path('product',{ 'id' : product.id })}}" style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></a>
+    <div class="info">
+        <p class="name">{{product.name}}</p>
+        <p class="description">{{ product.description }}</p>
+    </div>
+</div>

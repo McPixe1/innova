@@ -1,23 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <div class="home-hero" style="background-image:url('http://spacialtheme.herokuapp.com/2.1/images/unsplash/jared-erondu-10472.jpg')">
-        <div class='container'>
-            <div class='hero-content'>
-                <h1>Lorem ipsum dolor sit amet consectetum adispicin elit</h1>
-                <p>Lorem ipsum dolor sit amet</p>
-                <div class='text-center'>
-                    <a class='btn btn-primary' href='{{ path('contact')}}'>Contáctanos</a>
-                </div>
-            </div>
 
-        </div>
-    </div>
-
+    {% include ('innova/partials/hero.html.twig')%}
 
     <div class="container-fluid">
         <section class="light">
             <div class="container">
+
                 <div class="row">
                     <div class="col-lg-4">
                         <div class='feature'>
@@ -50,13 +40,12 @@
                         </div>
                     </div><!-- /.col-lg-4 -->
                 </div><!-- /.row -->
-                
+
             </div>
 
         </section>
 
-
-        <section class="">
+        <section>
             <div class="container">
                 <div class="row featurette">
                     <div class="col-md-12">
@@ -64,13 +53,7 @@
                     </div>
                     {% for product in products %}
                         <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class='product'>
-                                <a href="{{ path('product',{ 'id' : product.id })}}" style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></a>
-                                <div class="info">
-                                    <p class="name">{{product.name}}</p>
-                                    <p class="description">{{ product.description }}</p>
-                                </div>
-                            </div>
+                            {% include ('innova/partials/product_item.html.twig')%}
                         </div>
                     {% endfor %}
                 </div>
@@ -85,18 +68,7 @@
                     </div>
                     {% for project in projects %}
                         <div class="col-md-6 col-lg-4">
-                            <div href="" class="gallery-item">
-                                <span class="mask">
-                                    <span class="info">
-                                        <h3>{{project.name}}</h3>
-                                        <p>
-                                            {{project.description}}
-                                        </p>
-                                    </span>
-                                </span>
-                                <span style="background-image:url('{% path project.picture, 'big' %}');" class="pic">
-                                </span>
-                            </div>
+                            {% include ('innova/partials/project_item.html.twig')%}
                         </div>
                     {% endfor %}
                 </div>          

@@ -1,13 +1,22 @@
-{% extends 'base.html.twig' %}
+{% extends 'section_layout.html.twig' %}
 
 {% block body %}
 
-    <div class="header">
-        <div class="container">
-            <h2>{{product.name}}</h2>
+    {% block section_header %}
+        <div class="header">
+            <div class="container">
+                <h2>{{product.name}}</h2>
+            </div>
         </div>
-    </div>
+    {% endblock %}
+    
+    {% block section_breadcrumb %}
+        {{ parent() }}
+    {% endblock %}
+    
+    {% block section_body %}
     <div class="container main">
+
         <div class="product-content">
             <div class="row no-gutters">
                 <div class="col-md-6">
@@ -65,5 +74,6 @@
 
 
     </div><!-- /.container -->
+    {% endblock %}
 
 {% endblock %}

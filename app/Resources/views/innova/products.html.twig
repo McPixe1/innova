@@ -1,44 +1,49 @@
-{% extends 'base.html.twig' %}
+{% extends 'section_layout.html.twig' %}
 
 {% block body %}
 
-    <div class="header">
-        <div class="container">
-            <h2>Productos</h2>
-            <p>Échale un vistazo a nuestro catálogo</p>
+    {% block section_header %}
+        <div class="header">
+            <div class="container">
+                <h2>Productos</h2>
+                <p>Échale un vistazo a nuestro catálogo</p>
+            </div>
         </div>
-    </div>
-    <div class="container main">
+    {% endblock %}
 
-        <div class="row">
-            <div class="col-lg-3">
-                <div class="list-group">
-                    <a class="list-group-item list-group-item-action {% if app.request.attributes.get('_route') == 'products' %} active {% endif %}" href="{{ path('products')}}">Todo</a>
-                    {% for category in all_categories %}           
-                        <a class="list-group-item list-group-item-action {% if category.id == current_tab %} active {% endif %}" href="{{ path('products_filtered',{ 'category' : category.id })}}">{{category.name}}</a>
-                    {% endfor %}                   
+    {% block section_breadcrumb %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block section_body %}
+
+        <div class="container main">
+
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="list-group">
+                        <a class="list-group-item list-group-item-action {% if app.request.attributes.get('_route') == 'products' %} active {% endif %}" href="{{ path('products')}}">Todo</a>
+                        {% for category in all_categories %}           
+                            <a class="list-group-item list-group-item-action {% if category.id == current_tab %} active {% endif %}" href="{{ path('products_filtered',{ 'category' : category.id })}}">{{category.name}}</a>
+                        {% endfor %}                   
+                    </div>
+
+                </div>
+                <div class="col-lg-9">
+                    <div class="row">
+                        {% for product in products %}
+
+                            <div class="col-lg-3 col-md-4 col-sm-6">
+                                {% include ('innova/partials/product_item.html.twig')%}
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
 
-            </div>
-            <div class="col-lg-9">
-                <div class="row">
-                    {% for product in products %}
-
-                        <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class='product'>
-                                <a href="{{ path('product',{ 'id' : product.id })}}" style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></a>
-                                <div class="info">
-                                    <p class="name">{{product.name}}</p>
-                                    <p class="description">{{ product.description }}</p>
-                                </div></div>
-                        </div>
-                    {% endfor %}
-                </div>
-            </div>
-
-        </div><!-- /.row -->
+            </div><!-- /.row -->
 
 
-    </div><!-- /.container -->
+        </div><!-- /.container -->
+    {% endblock %}
 
 {% endblock %}

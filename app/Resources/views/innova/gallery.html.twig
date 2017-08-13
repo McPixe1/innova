@@ -1,43 +1,40 @@
-{% extends 'base.html.twig' %}
+{% extends 'section_layout.html.twig' %}
 
 {% block body %}
 
-    <div class="header">
-        <div class="container">
-            <h2>Galería</h2>
-            <p>Algunas de nuestras aplicaciones</p>
-        </div>
-    </div>
-
-    <div class="container main">
-        <div class="row">
-            <div class="col-xs-12">
-
+    {% block section_header %}
+        <div class="header">
+            <div class="container">
+                <h2>Galería</h2>
+                <p>Algunas de nuestras aplicaciones</p>
             </div>
         </div>
-        <div class="row no-gutters gallery">
+    {% endblock %}
 
-            {% for project in projects %}
-                <div class="col-md-6 col-lg-4">
-                    <div href="" class="gallery-item">
-                        <span class="mask">
-                            <span class="info">
-                                <h3>{{project.name}}</h3>
-                                <p>
-                                    {{project.description}}
-                                </p>
-                            </span>
-                        </span>
-                        <span style="background-image:url('{% path project.picture, 'big' %}');" class="pic">
-                        </span>
-                    </div>
+    {% block section_breadcrumb %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block section_body %}
+
+        <div class="container main">
+            <div class="row">
+                <div class="col-xs-12">
+
                 </div>
-            {% endfor %}
+            </div>
+            <div class="row no-gutters gallery">
+                {% for project in projects %}
+                    <div class="col-md-6 col-lg-4">
+                        {% include ('innova/partials/project_item.html.twig')%}
+                    </div>
+                {% endfor %}
 
-        </div>
+            </div>
 
-    </div><!-- /.container -->
+        </div><!-- /.container -->
 
+    {% endblock %}
 
 
 {% endblock %}
