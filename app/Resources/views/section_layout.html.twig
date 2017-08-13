@@ -7,7 +7,11 @@
     {% endblock %}
 
     {% block section_breadcrumb %}
-        {{ knp_menu_render('breadcrumb') }}
+        <div class="submenu">
+            <div class="container">
+                {{ knp_menu_render('breadcrumb') }}
+            </div>
+        </div>
     {% endblock %}
 
     {% block section_body %}
