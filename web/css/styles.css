@@ -193,7 +193,8 @@ table th, table td{
     height:14px;
     position: relative;
     float: left;
-    top: 11px;
+    top: 12px;
+    color: #06a7ec;
 }
 .navbar{
     background:white;
