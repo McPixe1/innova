@@ -138,7 +138,7 @@ class DefaultController extends Controller {
                             FROM AppBundle\Entity\Product p
                             WHERE p.name LIKE :data'
                     )
-                    ->setParameter('data', $data['search']);
+                    ->setParameter('data', '%'.$data['search'].'%');
 
             $products = $query->getResult();
             

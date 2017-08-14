@@ -6,7 +6,7 @@
         <div class="header">
             <div class="container">
                 <h2>Búsqueda</h2>
-                <p>Échale un vistazo a nuestro catálogo</p>
+                <p>Encuentra el producto que estás buscando</p>
             </div>
         </div>
     {% endblock %}
@@ -27,6 +27,10 @@
                                 {% include ('innova/partials/product_item.html.twig')%}
                             </div>
                         {% endfor %}
+
+                        {% if products | length < 1 %}
+                            No se han encontrado resultados.
+                        {% endif %}
                     </div>
                 </div>
 
