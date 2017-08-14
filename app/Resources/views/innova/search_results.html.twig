@@ -28,7 +28,10 @@
                     {% endfor %}
 
                     {% if products | length < 1 %}
-                        No se han encontrado resultados.
+                        <div class="col-lg-12">
+                            <p>No se han encontrado resultados.</p>
+                        </div>
+
                     {% endif %}
                 </div>
 

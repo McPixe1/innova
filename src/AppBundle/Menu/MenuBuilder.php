@@ -56,6 +56,9 @@ class MenuBuilder {
             case 'contact':
                 $menu->addChild('Contacto')->setCurrent(true);
                 break;
+            case 'search':
+                $menu->addChild('Búsqueda')->setCurrent(true);
+                break;
         }
 
         return $menu;
