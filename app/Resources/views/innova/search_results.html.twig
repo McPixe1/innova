@@ -19,19 +19,17 @@
 
         <div class="container main">
 
-            <div class="row">          
-                <div class="col-lg-12">
-                    <div class="row">
-                        {% for product in products %}
-                            <div class="col-lg-3 col-md-4 col-sm-6">
-                                {% include ('innova/partials/product_item.html.twig')%}
-                            </div>
-                        {% endfor %}
+            <div class="results-list">
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-lg-12">
+                            {% include ('innova/partials/product_item.html.twig')%}
+                        </div>
+                    {% endfor %}
 
-                        {% if products | length < 1 %}
-                            No se han encontrado resultados.
-                        {% endif %}
-                    </div>
+                    {% if products | length < 1 %}
+                        No se han encontrado resultados.
+                    {% endif %}
                 </div>
 
             </div><!-- /.row -->

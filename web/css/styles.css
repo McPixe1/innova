@@ -504,6 +504,31 @@ table th, table td{
     margin-top:10px;
 }
 
+/*--------------- SEARCH ----------------*/
+
+.results-list .product{
+    margin-bottom: 20px;
+}
+
+.results-list > .row > [class*='col'] + [class*='col'] .product{
+    border-top: 1px solid lightgrey;
+    padding-top: 20px;
+}
+
+.results-list .product .product-pic{
+    width: 260px;
+    float:left;
+    margin-right:50px;
+}
+.results-list .product .info{
+    height:200px;
+    padding-top:0;
+}
+.results-list .product .info .name{
+    font-size:20px;
+    margin-bottom: 5px;
+}
+
 /*-------------- FOOTER ----------------*/
 
 footer{

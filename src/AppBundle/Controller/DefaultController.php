@@ -122,10 +122,13 @@ class DefaultController extends Controller {
      */
     public function searchAction(Request $request) {
 
-        $defaultData = array('message' => '');
+        $defaultData = array('placeholder' => 'Buscar producto...');
         $form = $this->createFormBuilder($defaultData)
                 ->add('search', TextType::class, array(
-                    'label' => false
+                    'label' => false,
+                    'attr' => array(
+                        'placeholder' => $defaultData['placeholder']
+                    ),
                 ))
                 ->getForm();
 
@@ -138,11 +141,9 @@ class DefaultController extends Controller {
                             FROM AppBundle\Entity\Product p
                             WHERE p.name LIKE :data'
                     )
-                    ->setParameter('data', '%'.$data['search'].'%');
+                    ->setParameter('data', '%' . $data['search'] . '%');
 
             $products = $query->getResult();
-            
-            dump($products);
 
             return $this->render('innova/search_results.html.twig', array(
                         'products' => $products));
@@ -152,6 +153,7 @@ class DefaultController extends Controller {
                     'form' => $form->createView()
         ));
     }
+    
 
     private function sendEmail($data) {
         $myContactMail = 'dev.pepicast@gmail.com';
