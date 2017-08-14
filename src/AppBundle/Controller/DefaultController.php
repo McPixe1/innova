@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use AppBundle\Entity\Product;
 use AppBundle\Entity\Category;
 use AppBundle\Entity\Project;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DefaultController extends Controller {
@@ -115,28 +116,42 @@ class DefaultController extends Controller {
         ));
     }
 
-//    /**
-//     * @Route("/search", name="search")
-//     * 
-//     */
-//    public function searchAction(Request $request) {
-//
-//         $data = json_decode($request->getContent(), true);
-//
-//
-//        dump($data);
-//        $em = $this->getDoctrine()->getManager();
-//        $query = $em->createQuery(
-//                        'SELECT p.name, p.id
-//        FROM AppBundle\Entity\Product p
-//        WHERE p.name LIKE :data')
-//                ->setParameter('data', $data);
-//
-//        $res = $query->getResult();
-//
-//        return $this->render('innova/search.html.twig', array(
-//                    'res' => $res));
-//    }
+    /**
+     * @Route("/search", name="search")
+     * 
+     */
+    public function searchAction(Request $request) {
+
+        $defaultData = array('message' => '');
+        $form = $this->createFormBuilder($defaultData)
+                ->add('search', TextType::class, array(
+                    'label' => false
+                ))
+                ->getForm();
+
+        if ($request->isMethod('POST')) {
+            $form->handleRequest($request);
+            $data = $form->getData();
+            $em = $this->getDoctrine()->getManager();
+            $query = $em->createQuery(
+                            'SELECT p
+                            FROM AppBundle\Entity\Product p
+                            WHERE p.name LIKE :data'
+                    )
+                    ->setParameter('data', $data['search']);
+
+            $products = $query->getResult();
+            
+            dump($products);
+
+            return $this->render('innova/search_results.html.twig', array(
+                        'products' => $products));
+        }
+
+        return $this->render('innova/form/search.html.twig', array(
+                    'form' => $form->createView()
+        ));
+    }
 
     private function sendEmail($data) {
         $myContactMail = 'dev.pepicast@gmail.com';
