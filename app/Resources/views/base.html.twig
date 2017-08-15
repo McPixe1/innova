@@ -6,6 +6,7 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
             <link rel="stylesheet" href="{{ asset('css/styles.css') }}" />
+            <link rel="stylesheet" href="{{ asset('css/vendor/animate.css') }}" />
             <link href="https://fonts.googleapis.com/css?family=Lato:400,600,700|Roboto:400,700" rel="stylesheet">
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
@@ -29,30 +30,7 @@
             <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
             <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
             <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-
-           {# <script>
-                $('#search-form').submit(function (e) {
-                    e.preventDefault();
-                    var search = $('#search-form-input').val();
-                    
-                    $.ajax({
-                        url: "{{ path('search') }}",
-                        type: "POST",
-                        data: JSON.stringify(search),
-                        success: function (data) {
-                            console.log(search);
-                            location.href = '{{ path('search') }}';
-                        },
-                        error: function () {
-                            alert('it broke');
-                        },
-                        complete: function () {
-                             alert('it completed');
-                        }
-                    });
-                });
-
-            </script>#}
+            <script src="{{ asset('js/main.js') }}"></script>
         {% endblock %}
     </body>
 </html>

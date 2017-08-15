@@ -6,7 +6,7 @@
         <div class="header" style="background-image:url({{ asset('img/lights.jpg') }})">
             <div class="overlay"></div>
             <div class="container">
-                 <h2>Productos</h2>
+                <h2>Productos</h2>
                 <p>Échale un vistazo a nuestro catálogo</p>
             </div>
         </div>
@@ -62,15 +62,9 @@
             <div class="related">
                 <h2>También te puede interesar</h2>
                 <div class="row">
-                    {% for item in related %}
+                    {% for product in related %}
                         <div class="col-lg-3 col-md-4 col-sm-6">
-                            <div class='product'>
-                                <a href="{{ path('product',{ 'id' : item.id })}}" style="background-image:url('{% path item.picture, 'big' %}');" class='product-pic'></a>
-                                <div class="info">
-                                    <p class="name">{{item.name}}</p>
-                                    <p class="description">{{ item.description }}</p>
-                                </div>
-                            </div>
+                            {% include ('innova/partials/product_item.html.twig')%}
                         </div>
                     {% endfor %}
                 </div>

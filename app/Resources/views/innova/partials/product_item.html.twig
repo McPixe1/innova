@@ -1,5 +1,8 @@
 <div class='product'>
-    <a href="{{ path('product',{ 'id' : product.id })}}" style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></a>
+    <a class="pic-container" href="{{ path('product',{ 'id' : product.id })}}">
+        <span  style="background-image:url('{% path product.picture, 'big' %}');" class='product-pic'></span>
+        <span class="mask"><i class="fa fa-search-plus" aria-hidden="true"></i></span>
+    </a>
     <div class="info">
         <p class="name">{{product.name}}</p>
         <p class="description">{{ product.description }}</p>

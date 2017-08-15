@@ -22,6 +22,8 @@
 
             <div class="row">
                 <div class="col-lg-3">
+                    <h4 class="upper-title">Filtrar por</h4>
+
                     <div class="list-group">
                         <a class="list-group-item list-group-item-action {% if app.request.attributes.get('_route') == 'products' %} active {% endif %}" href="{{ path('products')}}">Todo</a>
                         {% for category in all_categories %}           
@@ -31,7 +33,7 @@
 
                 </div>
                 <div class="col-lg-9">
-                    <div class="row">
+                    <div class="row product-list">
                         {% for product in products %}
 
                             <div class="col-lg-3 col-md-4 col-sm-6">
