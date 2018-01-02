@@ -261,10 +261,10 @@ table th, table td{
 
 .navbar input{
     font-size:14px;
-    padding: 8px 15px 6px 15px;
+    padding: 7px 15px 5px 15px;
     margin:0;
     background:#eee;
-    margin-left:15px;
+    margin-left:2rem;
     border-color: #eee;
     width: 170px !important;
     border-top-right-radius: 0;
