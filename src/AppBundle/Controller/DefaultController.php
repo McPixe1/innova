@@ -144,9 +144,10 @@ class DefaultController extends Controller {
                     ->setParameter('data', '%' . $data['search'] . '%');
 
             $products = $query->getResult();
+            $term = $data['search'];
 
             return $this->render('innova/search_results.html.twig', array(
-                        'products' => $products));
+                        'products' => $products, 'term' => $term));
         }
 
         return $this->render('innova/form/search.html.twig', array(
