@@ -42,7 +42,15 @@
         </div>
 
         <div class="bottom">
-            <p>&copy; 2017 Innova Comercial</p>
+            <p>
+                &copy;  
+                <span id="copyright">
+                    <script>
+                        document.getElementById('copyright').appendChild(document.createTextNode(new Date().getFullYear()))
+                    </script>
+                </span> 
+                Innova Comercial
+            </p>
         </div>
     </div>
 </footer>

@@ -16,12 +16,17 @@ body {
     min-height: 500px;
 }
 
+.alert{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+}
 .header{
     position:relative;
     height: 250px;
     background-image: linear-gradient(310deg,#272b53 0,#4f7296 90%);
     color: white;
-    /*margin-bottom: 50px;*/
     display: flex;
     align-items: center;
     background-size: cover;
@@ -246,7 +251,7 @@ table th, table td{
     height:14px;
     position: relative;
     float: left;
-    top: 12px;
+    top: 14px;
     color: #06a7ec;
 }
 .navbar{
@@ -261,11 +266,12 @@ table th, table td{
 
 .navbar input{
     font-size:14px;
-    padding: 7px 15px 5px 15px;
+    height: 35px;
+    padding: 6px 15px 5px 15px;
     margin:0;
-    background:#eee;
+    background:#cecece;
     margin-left:2rem;
-    border-color: #eee;
+    border-color: #cecece;
     width: 170px !important;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
@@ -279,11 +285,11 @@ table th, table td{
     margin:0;
     box-shadow: none;
     width:40px;
-    height:34px;
-    color: #777;
-    background-color: #eeeeee;
+    height:35px;
+    color: #fcfcfc;
+    background-color: #0177ab;
+    background: linear-gradient(to bottom,#01a1e4 0,#0178ad 100%);
     border-color: #eeeeee;
-    background-image:none;
     text-shadow:none;
 }
 
@@ -350,14 +356,12 @@ table th, table td{
 /*-------------- HOME ---------------------*/
 
 .home-hero{
-    background-position: center 0;
-    background-size: cover;
-    background-attachment: fixed;
     height: 540px;
     display: flex;
     align-items: center;
     overflow: hidden;
     position: relative;
+    background-size: cover;
 }
 .home-hero:after{
     content: '';
