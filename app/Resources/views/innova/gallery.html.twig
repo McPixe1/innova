@@ -25,11 +25,15 @@
                 </div>
             </div>
             <div class="row no-gutters gallery">
+                {% if projects | length > 0%}
                 {% for project in projects %}
                     <div class="col-md-6 col-lg-4">
                         {% include ('innova/partials/project_item.html.twig')%}
                     </div>
                 {% endfor %}
+                {% else %}
+                    <p>Próximamente</p>
+                {% endif %}
 
             </div>
 

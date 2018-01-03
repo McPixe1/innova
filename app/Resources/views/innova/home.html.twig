@@ -5,7 +5,7 @@
     {% include ('innova/partials/hero.html.twig')%}
 
     <div class="container-fluid">
-        <section class="light">
+        {#<section class="light">
             <div class="container">
 
                 <div class="row">
@@ -43,9 +43,9 @@
 
             </div>
 
-        </section>
+        </section>#}
 
-        <section>
+        <section class="light">
             <div class="container">
                 <div class="row featurette">
                     <div class="col-md-12">
@@ -59,21 +59,23 @@
                 </div>
             </div>
         </section>
+        {% if projects | length > 0%}
 
-        <section class="light">
-            <div class="container">
-                <div class="row featurette no-gutters">
-                    <div class="col-md-12">
-                        <h2 class="featurette-heading">Últimos proyectos</h2>
-                    </div>
-                    {% for project in projects %}
-                        <div class="col-md-6 col-lg-4">
-                            {% include ('innova/partials/project_item.html.twig')%}
+            <section class="dark">
+                <div class="container">
+                    <div class="row featurette no-gutters">
+                        <div class="col-md-12">
+                            <h2 class="featurette-heading">Últimos proyectos</h2>
                         </div>
-                    {% endfor %}
-                </div>          
-            </div>
-        </section>
+                        {% for project in projects %}
+                            <div class="col-md-6 col-lg-4">
+                                {% include ('innova/partials/project_item.html.twig')%}
+                            </div>
+                        {% endfor %}
+                    </div>          
+                </div>
+            </section>
+        {% endif %}
 
 
     </div><!-- /.container -->
@@ -82,5 +84,5 @@
 
 {% block javascripts %}
     {{ parent()}}
-    
+
 {% endblock %}

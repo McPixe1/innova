@@ -31,7 +31,14 @@ class ProductAdmin extends AbstractAdmin {
                     'label' => 'Categoría'
                 ))
                 ->add('isImportant', 'checkbox', array(
-                    'label' => 'Destacado'
+                    'label' => 'Destacado',
+                    'required' => false
+                ))
+                ->add('catalogue', 'sonata_media_type', array(
+                    'provider' => 'sonata.media.provider.file',
+                    'context' => 'default',
+                    'label' => 'Catálogo',
+                    'required' => false
                 ))
                 ->add('picture', 'sonata_media_type', array(
                     'provider' => 'sonata.media.provider.image',

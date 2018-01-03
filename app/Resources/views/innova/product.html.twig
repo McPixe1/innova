@@ -53,6 +53,10 @@
                                         {{product.specs | raw}}
                                     </div>
                                 </div>
+                                {% if product.catalogue %}
+                                    <a class="btn btn-secondary" href='{% path product.catalogue, 'reference'%}'>Descargar catálogo</a>
+                                {% endif %}
+
                             </div>
                         </div>
                     </div>

@@ -59,6 +59,16 @@ class Product {
      * })
      */
     private $picture;
+    
+    /**
+     * @var Media
+     *
+     * @ORM\ManyToOne(targetEntity="Application\Sonata\MediaBundle\Entity\Media",cascade={"persist"})
+     * @ORM\JoinColumns({
+     *     @ORM\JoinColumn(name="catalogue", referencedColumnName="id")
+     * })
+     */
+    private $catalogue;
 
     /**
      * Get id
@@ -215,6 +225,28 @@ class Product {
      */
     public function getPicture() {
         return $this->picture;
+    }
+    
+      /**
+     * Set catalogue
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $catalogue
+     *
+     * @return Product
+     */
+    public function setCatalogue(\Application\Sonata\MediaBundle\Entity\Media $catalogue = null) {
+        $this->catalogue = $catalogue;
+
+        return $this;
+    }
+
+    /**
+     * Get catalogue
+     *
+     * @return \Application\Sonata\MediaBundle\Entity\Media
+     */
+    public function getCatalogue() {
+        return $this->catalogue;
     }
 
 }
